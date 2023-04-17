@@ -13,9 +13,8 @@ void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) {
     switch (task) {
       case "importData":
-        Func()
-            .apitoisar(); // calls the function that will import data from the
-            // backend api and write it on the isar database
+        Func().apitoisar(); // calls the function that will import data from the
+        // backend api and write it on the isar database
         break;
     }
     return Future.value(true);
@@ -43,7 +42,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final dir = await getApplicationSupportDirectory();
   if (dir.existsSync()) {
-    await Isar.open([ProductSchema]);
+    await Isar.open([ProductSchema], name: "products");
     runApp(const MyApp());
   }
 }
